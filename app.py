@@ -16,11 +16,6 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 # ── Page config ───────────────────────────────────────────────
-st.set_page_config(
-    page_title="Parcl Buyer Intelligence",
-    page_icon="🏢",
-    layout="wide"
-)
 
 # ── Load data ─────────────────────────────────────────────────
 @st.cache_data
@@ -63,14 +58,20 @@ st.markdown("Machine learning based buyer segmentation and investment profiling"
 st.divider()
 
 # ── Module 1: KPI row ─────────────────────────────────────────
-st.subheader("Overview")
-c1, c2, c3, c4, c5 = st.columns(5)
-c1.metric("Total clients",      f"{len(filtered):,}")
-c2.metric("Segments",           filtered['segment'].nunique())
-c3.metric("Avg satisfaction",   f"{filtered['satisfaction_score'].mean():.2f}")
-c4.metric("Investment buyers",  f"{(filtered['acquisition_purpose']=='Investment').mean()*100:.1f}%")
-c5.metric("Loan applied",       f"{(filtered['loan_applied']=='Yes').mean()*100:.1f}%")
-st.divider()
+# st.subheader("Overview")
+# c1, c2, c3, c4, c5 = st.columns(5)
+# c1.metric("Total clients",      f"{len(filtered):,}")
+# c2.metric("Segments",           filtered['segment'].nunique())
+# c3.metric("Avg satisfaction",   f"{filtered['satisfaction_score'].mean():.2f}")
+# c4.metric("Investment buyers",  f"{(filtered['acquisition_purpose']=='Investment').mean()*100:.1f}%")
+# c5.metric("Loan applied",       f"{(filtered['loan_applied']=='Yes').mean()*100:.1f}%")
+# st.divider()
+col1, col2, col3, col4 = st.columns(4)
+
+col1.metric("Total Clients", total_clients)
+col2.metric("Segments", 4)
+col3.metric("Avg Satisfaction", avg_satisfaction)
+col4.metric("Investment Buyers", "30.8%")
 
 # ── Module 2: Buyer segmentation ──────────────────────────────
 st.subheader("Module 1 — Buyer segmentation overview")
