@@ -1,4 +1,16 @@
 import streamlit as st
+
+st.markdown("""
+<h1 style='text-align: center; color: #ff4b4b;'>
+🏠 Parcl Buyer Intelligence Dashboard
+</h1>
+<p style='text-align: center;'>
+AI-powered real estate buyer segmentation & insights
+</p>
+""", unsafe_allow_html=True)
+
+
+import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
